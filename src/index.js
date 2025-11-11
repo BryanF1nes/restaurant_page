@@ -1,7 +1,4 @@
 import "./styles.css";
 
-(function helloWorld() {
-	const body = document.querySelector("body");
+console.log('Hello world');
 
-	body.textContent = "Hello World";
-})();
