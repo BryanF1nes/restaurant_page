@@ -1,8 +1,144 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Unkempt:wght@400;700&display=swap');
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+#root,
+#__next {
+	isolation: isolate;
+}
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Robot', sans-serif;
+}
+
+header {
+	width: 100%;
+	background-color: black;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px;
+	margin: 0px auto;
+}
+
+.logo-container {
+	width: 200px;
+	height: auto;
+	padding: 48px;
+	background: url('./assets/logo-white-type.svg') no-repeat;
+	background-size: fill;
+	background-position: center;
+}
+
+.first-container {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	padding: 0px 24px;
+}
+
+.nav-container button {
+	padding: 8px 24px;
+	font-size: 16px;
+	color: white;
+	background-color: black;
+	font-weight: 600;
+	border: none;
+}
+
+.nav-container button:hover {
+	color: #b8a058;
+	cursor: pointer;
+}
+
+.order-online-container {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.order-online-container a {
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.order-online-container button {
+	background-color: transparent;
+	border: 1px solid #b8a058;
+	padding: 12px 4px 12px 4px;
+	cursor: pointer;
+}
+
+.order-online-container span {
+	font-weight: 600;
+	font-size: 16px;
+	color: white;
+	background-color: #b8a058;
+	padding: 12px 24px;
+}
+
+.order-online-container span:hover {
+	background-color: #9b8542
 }
