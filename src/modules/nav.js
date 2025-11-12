@@ -9,6 +9,7 @@ export const HeaderModule = (function() {
 
 	const init = () => {
 		render();
+		setDefaultPage();
 	};
 
 	const render = () => {
@@ -74,6 +75,14 @@ export const HeaderModule = (function() {
 
 		const match = items.find((item) => context === item.NAMESPACE);
 		return match.init();
+	}
+
+	const setDefaultPage = () => {
+		const menuButton = document.getElementById('Menu');
+		if (menuButton) {
+			menuButton.classList.add('active');
+		}
+		Menu.init();
 	}
 
 	return { init }

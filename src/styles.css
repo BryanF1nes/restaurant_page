@@ -148,6 +148,7 @@ nav {
 	margin: 0px auto;
 	max-width: 900px;
 	padding: 24px;
+	height: 70vh;
 }
 
 .title {
@@ -218,4 +219,39 @@ footer ul a {
 
 footer p {
 	font-size: 12px;
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-control {
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 0.375rem;
+}
+
+#message {
+	height: 200px;
+}
+
+.submit-btn {
+	background-color: #b8a058;
+	color: white;
+	padding: 0.5rem 1rem;
+	border: none;
+	cursor: pointer;
+}
+
+.submit-btn:hover {
+	background-color: #9b8542;
 }

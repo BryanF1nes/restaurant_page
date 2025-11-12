@@ -1,44 +1,56 @@
 import menus from "./db.json";
 
+const createMenuItem = (name, url) => {
+	const render = () => {
+		const container = document.createElement('div');
+		container.classList.add('menu-items');
+
+		const image = document.createElement('img');
+		image.src = url ? require(`../assets/${url}`) : '';
+		image.alt = name;
+
+		const caption = document.createElement('p');
+		caption.textContent = name;
+
+		container.append(image, caption);
+		return container;
+	}
+
+	return { render };
+};
+
 export const MenuModule = (function() {
 	const NAMESPACE = 'Menu';
+
 	const init = () => {
 		render();
 	}
 
 	const render = () => {
 		const content = document.getElementById('content');
-		const cardContainer = createCard();
-		const pageTitle = createTitle();
+		content.innerHTML = "";
 
-		content.append(pageTitle, cardContainer);
+		const title = createTitle();
+		const menuGrid = createMenuGrid(menus.menus);
+
+		content.append(title, menuGrid);
 	}
 
-	const createCard = () => {
-		const container = document.createElement('div');
-		container.classList.add('menu-container')
-		menus.menus.forEach((item) => {
-			const menuContainer = document.createElement('div');
-			const image = document.createElement('img');
-			const p = document.createElement('p');
+	const createMenuGrid = (menuData) => {
+		const grid = document.createElement('div');
+		grid.classList.add('menu-container');
 
-			const imageSrc = item.url ? require(`../assets/${item.url}`) : undefined;
-			image.src = imageSrc;
+		menuData.forEach((item) => {
+			const menuItem = createMenuItem(item.name, item.url);
+			grid.appendChild(menuItem.render());
+		});
 
-			p.textContent = item.name;
-
-			menuContainer.classList.add('menu-items');
-			menuContainer.append(image, p);
-			container.appendChild(menuContainer);
-		})
-
-		return container;
+		return grid;
 	}
 
 	const createTitle = () => {
 		const h1 = document.createElement('h1');
 		h1.classList.add('title');
-
 		h1.textContent = NAMESPACE + `s`;
 
 		return h1;

@@ -1,31 +1,69 @@
-export const AboutModule = (function() {
-	const NAMESPACE = 'About';
+const createTextBlock = (text, className = "") => {
+	const render = () => {
+		const p = document.createElement("p");
+		p.textContent = text;
+		if (className) p.classList.add(className);
+		return p;
+	};
+
+	return { render };
+};
+
+export const AboutModule = (() => {
+	const NAMESPACE = "About";
+
 	const init = () => {
 		render();
-	}
+	};
 
 	const render = () => {
-		const content = document.getElementById('content');
+		const content = document.getElementById("content");
+		content.innerHTML = "";
+
 		const title = createTitle();
-		const body = generateContent();
-		return content.append(title, body);
-	}
+		const aboutInfo = generateAboutInfo();
+		const story = generateStory();
 
-	const generateContent = () => {
-		const p = document.createElement('p');
-		p.textContent = "This is the about page. We're so glad you're here and looking at the site. However please be aware this is just a creation of a local taphouse in my area. All credit and design goes to the original creator. I simply just took what they created in order to have something to show upon completing a restaurant project for The Odin Project. While I have your attention to this I will go ahead and talk a bit about this project and how it was created. The main focus of this project was to use the Module Pattern and Webpack in conjuction to bring a website to life. Some of the main focuses I personally wanted to gain from this project was using Factory Functions and the Module Pattern in order to have as little global variables/objects/etc from inheriting the main JavaScript file. I also wanted to reduce as much HTML as possible, while this wasn't necessary it was something I wanted to do as a personal goal of mine. I could still go back and add a new module to handle the footer as well but I'll leave that for another day. The tech stack is as follows: JavaScript, HTML, CSS, and Webpack."
-
-		return p;
-	}
+		content.append(title, aboutInfo, story);
+	};
 
 	const createTitle = () => {
-		const h1 = document.createElement('h1');
-		h1.classList.add('title');
-
+		const h1 = document.createElement("h1");
+		h1.classList.add("title");
 		h1.textContent = NAMESPACE;
-
 		return h1;
-	}
+	};
+
+	const generateAboutInfo = () => {
+		const text = `This is the about page. We're so glad you're here and exploring the site. 
+This project represents a practice exercise inspired by a local taphouse’s design. 
+The main focus of this build was to apply Object-Oriented Programming principles through the Module Pattern, Webpack bundling, and Factory Functions — all while minimizing global variables and dynamically generating HTML content.
+The technologies used include JavaScript, HTML, CSS, and Webpack. Now enjoy this short story from ChatGPT about a Dragon and a brave knight.`;
+
+		return createTextBlock(text, "about-info").render();
+	};
+
+	const generateStory = () => {
+		const storyText = `Long ago, in a misty valley surrounded by mountains, 
+a fearsome dragon named Emberwing guarded a treasure of untold worth. 
+Every knight who challenged the beast vanished into legend — until one day, a brave knight named Ser Aldric appeared. 
+Unlike the others, Aldric did not come with sword drawn, but with open hands and a promise: to share the dragon’s wisdom with the world.
+Moved by courage and honesty, Emberwing spared the knight and granted him a single scale — 
+a token of trust that shone brighter than any gold. 
+From that day on, the dragon and the knight watched over the valley together — guardians not of treasure, but of peace.`;
+
+		const storyBlock = createTextBlock(storyText, "about-story").render();
+
+		const subtitle = document.createElement("h2");
+		subtitle.textContent = "A Tale of Emberwing and the Brave Knight";
+		subtitle.classList.add("subtitle");
+
+		const container = document.createElement("div");
+		container.classList.add("story-container");
+		container.append(subtitle, storyBlock);
+
+		return container;
+	};
 
 	return { init, NAMESPACE };
 })();
