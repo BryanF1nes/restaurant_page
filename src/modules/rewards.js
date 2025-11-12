@@ -6,10 +6,17 @@ export const RewardModule = (function() {
 
 	const render = () => {
 		const content = document.getElementById('content');
-		const h1 = document.createElement('h1');
-		h1.textContent = 'Hello From the Rewards Module';
+		const title = createTitle();
+		return content.appendChild(title);
+	}
 
-		return content.appendChild(h1);
+	const createTitle = () => {
+		const h1 = document.createElement('h1');
+		h1.classList.add('title');
+
+		h1.textContent = NAMESPACE;
+
+		return h1;
 	}
 
 	return { init, NAMESPACE };

@@ -9,18 +9,22 @@ export const MenuModule = (function() {
 	const render = () => {
 		const content = document.getElementById('content');
 		const cardContainer = createCard();
-		return content.appendChild(cardContainer);
+		const pageTitle = createTitle();
+
+		content.append(pageTitle, cardContainer);
 	}
 
 	const createCard = () => {
 		const container = document.createElement('div');
 		container.classList.add('menu-container')
-		menus.menus.map((item) => {
+		menus.menus.forEach((item) => {
 			const menuContainer = document.createElement('div');
 			const image = document.createElement('img');
 			const p = document.createElement('p');
 
-			image.setAttribute('src', item.url);
+			const imageSrc = item.url ? require(`../assets/${item.url}`) : undefined;
+			image.src = imageSrc;
+
 			p.textContent = item.name;
 
 			menuContainer.classList.add('menu-items');
@@ -29,6 +33,15 @@ export const MenuModule = (function() {
 		})
 
 		return container;
+	}
+
+	const createTitle = () => {
+		const h1 = document.createElement('h1');
+		h1.classList.add('title');
+
+		h1.textContent = NAMESPACE + `s`;
+
+		return h1;
 	}
 
 	return { init, NAMESPACE };

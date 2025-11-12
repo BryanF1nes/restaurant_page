@@ -8,22 +8,22 @@
     {
       "id": 2,
       "name": "Dinner Menu",
-      "url": ""
+      "url": "dinner-menu.jpg"
     },
     {
       "id": 3,
       "name": "Kid's Menu",
-      "url": ""
+      "url": "kids-menu.jpg"
     },
     {
       "id": 4,
       "name": "Specials Menu",
-      "url": ""
+      "url": "specials-menu.jpg"
     },
     {
       "id": 5,
       "name": "Brunch Menu",
-      "url": ""
+      "url": "brunch-menu.jpg"
     }
   ]
 }

@@ -16,6 +16,7 @@ export const HeaderModule = (function() {
 		const content = document.getElementById('content');
 
 		body.insertBefore(createNav(), content);
+		return;
 	};
 
 	const createNav = () => {
@@ -71,14 +72,8 @@ export const HeaderModule = (function() {
 
 		const context = e.currentTarget.id;
 
-		items.filter((item) => {
-			if (context == item.NAMESPACE) {
-				return item.init();
-			} else {
-				return null
-			}
-		});
-
+		const match = items.find((item) => context === item.NAMESPACE);
+		return match.init();
 	}
 
 	return { init }
