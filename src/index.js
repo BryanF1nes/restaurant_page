@@ -1,4 +1,3 @@
 import "./styles.css";
-import { HeaderModule } from "./modules/nav.js";
-
-HeaderModule.init();
+import { DisplayController } from './modules/displayController.js';
+DisplayController.init();

@@ -1,5 +1,8 @@
 import { AboutModule as About } from "./about.js";
 import { MenuModule as Menu } from "./menu.js";
+import { RewardModule as Rewards } from "./rewards.js";
+import { ContactModule as Contact } from "./contact.js";
+import { OrderOnlineModule as Order } from "./orderOnline.js";
 
 export const HeaderModule = (function() {
 	const menuItems = ['Menu', 'About', 'Rewards', 'Contact'];
@@ -42,10 +45,14 @@ export const HeaderModule = (function() {
 		const button = document.createElement('button');
 		const span = document.createElement('span');
 
+		aHref.setAttribute('href', '#');
+
 		aHref.textContent = 'Choose a location';
 		span.textContent = 'Order Online';
 
 		button.appendChild(span);
+		button.setAttribute('id', 'Order');
+		button.addEventListener('click', (e) => handleClick(e));
 
 		firstContainer.append(logoContainer, navContainer);
 		orderOnlineContainer.append(aHref, button);
@@ -58,11 +65,11 @@ export const HeaderModule = (function() {
 	};
 
 	const handleClick = (e) => {
-		const items = [Menu, About];
+		const items = [Menu, About, Rewards, Contact, Order];
 		const content = document.getElementById('content');
 		content.innerHTML = ``;
 
-		const context = e.target.id;
+		const context = e.currentTarget.id;
 
 		items.filter((item) => {
 			if (context == item.NAMESPACE) {
