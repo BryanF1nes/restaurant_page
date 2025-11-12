@@ -1,0 +1,29 @@
+{
+  "menus": [
+    {
+      "id": 1,
+      "name": "Lunch Menu",
+      "url": "lunch-menu.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Dinner Menu",
+      "url": ""
+    },
+    {
+      "id": 3,
+      "name": "Kid's Menu",
+      "url": ""
+    },
+    {
+      "id": 4,
+      "name": "Specials Menu",
+      "url": ""
+    },
+    {
+      "id": 5,
+      "name": "Brunch Menu",
+      "url": ""
+    }
+  ]
+}

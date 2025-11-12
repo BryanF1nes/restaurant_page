@@ -1,3 +1,5 @@
+import menus from "./db.json";
+
 export const MenuModule = (function() {
 	const NAMESPACE = 'Menu';
 	const init = () => {
@@ -6,10 +8,27 @@ export const MenuModule = (function() {
 
 	const render = () => {
 		const content = document.getElementById('content');
-		const h1 = document.createElement('h1');
-		h1.textContent = 'Hello From the Menu';
+		const cardContainer = createCard();
+		return content.appendChild(cardContainer);
+	}
 
-		return content.appendChild(h1);
+	const createCard = () => {
+		const container = document.createElement('div');
+		container.classList.add('menu-container')
+		menus.menus.map((item) => {
+			const menuContainer = document.createElement('div');
+			const image = document.createElement('img');
+			const p = document.createElement('p');
+
+			image.setAttribute('src', item.url);
+			p.textContent = item.name;
+
+			menuContainer.classList.add('menu-items');
+			menuContainer.append(image, p);
+			container.appendChild(menuContainer);
+		})
+
+		return container;
 	}
 
 	return { init, NAMESPACE };

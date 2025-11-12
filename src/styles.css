@@ -142,3 +142,60 @@ nav {
 .order-online-container span:hover {
 	background-color: #9b8542
 }
+
+#content {
+	margin: 0px auto;
+	max-width: 800px;
+	padding: 24px;
+}
+
+.menu-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+}
+
+.menu-items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 300px;
+	width: 300px;
+	border: 2px solid #b8a058;
+}
+
+.menu-items p {
+	font-size: 18px;
+	border-top: 2px solid #b8a058;
+	width: 100%;
+	padding: 18px;
+}
+
+footer {
+	margin-top: 48px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	width: 100%;
+	padding: 48px;
+	background-color: #941500;
+	color: white;
+}
+
+footer ul {
+	list-style: none;
+	text-align: center;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+footer ul li {
+	margin: 12px;
+}
+
+footer p {
+	font-size: 12px;
+}
